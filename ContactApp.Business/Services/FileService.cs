@@ -1,9 +1,10 @@
-﻿using ContactApp.Business.Models;
+﻿using ContactApp.Business.Interfaces;
+using ContactApp.Business.Models;
 using System.Text.Json;
 
 namespace ContactApp.Business.Services;
 
-public class FileService
+public class FileService : IFileService
 {
     private readonly String _directoryPath;
     private readonly String _filePath;

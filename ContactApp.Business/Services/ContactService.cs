@@ -1,8 +1,9 @@
 ﻿
+using ContactApp.Business.Interfaces;
 using ContactApp.Business.Models;
 namespace ContactApp.Business.Services;
 
-public class ContactService
+public class ContactService : IContactService
 {
     private List<Contact> _contacts = [];
     private readonly FileService _fileService = new();
