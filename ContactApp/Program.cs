@@ -3,6 +3,7 @@ using ContactApp.Business.Factories;
 using ContactApp.Business.Interfaces;
 using ContactApp.Business.Services;
 using ContactApp.Dialogs;
+using ContactApp.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,12 +14,12 @@ var host = Host.CreateDefaultBuilder()
         services.AddTransient<IContactService, ContactService>();
         services.AddTransient<IContactFactory, ContactFactory>();
 
-        services.AddTransient<MenuDialogs>();
+        services.AddTransient<IMenuDialogs, MenuDialogs>();
 
     })
 .Build();
 
 using var scope = host.Services.CreateScope();
-MenuDialogs menuDialogs = scope.ServiceProvider.GetRequiredService<MenuDialogs>();
+IMenuDialogs menuDialogs = scope.ServiceProvider.GetRequiredService<IMenuDialogs>();
 
 menuDialogs.RunMenuOptions();

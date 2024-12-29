@@ -8,6 +8,6 @@ namespace ContactApp.Business.Interfaces
         Contact Create();
         bool Delete(Guid id);
         IEnumerable<Contact> Read();
-        bool Update(Guid id, string firstName, string lastName);
+        bool Update(Contact contact);
     }
 }

@@ -34,18 +34,13 @@ public class ContactService : IContactService
         return _contacts;
     }
 
-    public bool Update(Guid id, string firstName, string lastName)
+    public bool Update(Contact contact)
     {
-        var contact = _contacts.FirstOrDefault(c => c.GuidId == id);
         if (contact == null)
         {
             Console.WriteLine("User not found.");
             return false;
         }
-
-        contact.FirstName = firstName;
-        contact.LastName = lastName;
-
         Console.WriteLine("User updated successfully.");
         return true;
     }
@@ -59,8 +54,8 @@ public class ContactService : IContactService
             return false;
         }
 
-        _contacts.Remove(contact);
-        Console.WriteLine("User deleted successfully.");
+        _contacts.Remove(contact); // Ta bort kontakten från listan
+        _fileService.SaveToFile(_contacts); // Spara ändringarna till fil
         return true;
     }
 }

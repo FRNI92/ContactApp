@@ -1,12 +1,13 @@
 ﻿using ContactApp.Business.Interfaces;
 using ContactApp.Business.Models;
-using static ContactApp.Dialogs.MenuDialogs;
+using ContactApp.Dialogs;
+using static ContactApp.Interfaces.MenuDialogs;
 
-namespace ContactApp.Dialogs;
+namespace ContactApp.Interfaces;
 
-public class MenuDialogs
+public class MenuDialogs : IMenuDialogs
 {
- 
+
     private readonly IContactService _contactService;
     private readonly IFileService _fileService;
     public MenuDialogs(IContactService contactService, IFileService fileService) =>
@@ -25,7 +26,8 @@ public class MenuDialogs
             Console.WriteLine("\t[1]. Create Contact");
             Console.WriteLine("\t[2]. Show Contact List");
             Console.WriteLine("\t[3]. Update Contact List");
-            Console.WriteLine("\t[4]. EXIT\n");
+            Console.WriteLine("\t[4]. Delete User");
+            Console.WriteLine("\t[5]. EXIT\n");
             Console.Write("Enter Your Option:");
 
             var userInput = Console.ReadLine();
@@ -39,12 +41,16 @@ public class MenuDialogs
                 case "2":
                     ShowListOption();
                     break;
-                    
+
                 case "3":
                     UpdateUser();
+                    break;                
+                
+                case "4":
+                    DeleteUser();
                     break;
 
-                case "4":
+                case "5":
                     return;
 
                 default:
@@ -144,6 +150,7 @@ public class MenuDialogs
         {
             var selectedContact = contact[choice - 1];
             Console.WriteLine($"Updating contact: {selectedContact.FirstName} {selectedContact.LastName}");
+
             selectedContact.FirstName = CheckingNull($"Current First Name ({selectedContact.FirstName}): ");
             selectedContact.LastName = CheckingNull($"Current Last Name ({selectedContact.LastName}): ");
             selectedContact.Email = CheckingNull($"Current Email ({selectedContact.Email}): ");
@@ -151,8 +158,15 @@ public class MenuDialogs
             selectedContact.StreetAdress = CheckingNull($"Current Street Address ({selectedContact.StreetAdress}): ");
             selectedContact.PostalCode = CheckingNull($"Current Postal Code ({selectedContact.PostalCode}): ");
             selectedContact.City = CheckingNull($"Current City ({selectedContact.City}): ");
-            _fileService.SaveToFile(contact);
-            Console.WriteLine("Contact updated successfully.");
+
+            if (_contactService.Update(selectedContact))
+            {
+                Console.WriteLine("Contact updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to update contact.");
+            }
         }
         else
         {
@@ -162,6 +176,48 @@ public class MenuDialogs
     }
 
 
+    public void DeleteUser()
+    {
+        Console.Clear();
+        Console.WriteLine("\tCONTACT-MANAGER");
+        Console.WriteLine("\tUpdate Contact List");
+
+        Console.WriteLine("This Is The Contact List:");
+        var contact = _fileService.LoadFromFile();
+
+        int index = 1;
+        foreach (var contacts in contact)
+        {
+            Console.WriteLine($"{index}.Name: {contacts.FirstName} {contacts.LastName}");
+            Console.WriteLine($"Email: {contacts.Email}");
+            Console.WriteLine($"Phone: {contacts.PhoneNumber}");
+            Console.WriteLine($"Street: {contacts.StreetAdress}");
+            Console.WriteLine($"Postal Code: {contacts.PostalCode}");
+            Console.WriteLine($"City: {contacts.City}");
+            Console.WriteLine("------------------------------------");
+            index++;
+        }
+            Console.WriteLine("----Witch Contact Would You Like To Delete");
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= contact.Count)
+            {
+                var selectedContact = contact[choice - 1];
+                Console.WriteLine($"Deleting contact: {selectedContact.FirstName} {selectedContact.LastName}");
+
+                if (_contactService.Delete(selectedContact.GuidId))
+                {
+                    Console.WriteLine("Contact deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to delete the contact.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+            Console.ReadKey();
+        }
 
     private string CheckingNull(string textFromUser)//för att städa upp lite
     {
