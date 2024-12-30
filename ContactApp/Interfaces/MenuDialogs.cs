@@ -207,7 +207,6 @@ public class MenuDialogs : IMenuDialogs
                 if (_contactService.Delete(selectedContact.GuidId))
                 {
                     Console.WriteLine("Contact deleted successfully.");
-                    Console.WriteLine("----Press Any Key To Go Back To Menu");
                 }
                 else
                 {
@@ -221,7 +220,7 @@ public class MenuDialogs : IMenuDialogs
             Console.ReadKey();
         }
 
-    private string CheckingNull(string textFromUser)
+    private string CheckingNull(string textFromUser)//för att städa upp lite
     {
         Console.Write(textFromUser);
         string? input = Console.ReadLine()?.Trim();

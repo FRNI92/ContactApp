@@ -117,6 +117,13 @@ public class ContactService_Tests
         //assert
         Assert.Contains(mockContact, result.ToList());//konvertera IEnumerable till list så Asser.Contains fungerar
     }
+
+
+    [Fact]
+    public void Update_ShouldUpdateContactProperties()
+    {
+
+    }
 }
 
 

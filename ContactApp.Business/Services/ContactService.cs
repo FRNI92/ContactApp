@@ -36,12 +36,12 @@ public class ContactService : IContactService
 
     public bool Update(Contact contact)
     {
+        var existingContact = _contacts.FirstOrDefault(c => c.GuidId == contact.GuidId);
         if (contact == null)
         {
             Console.WriteLine("User not found.");
             return false;
         }
-        Console.WriteLine("User updated successfully.");
         return true;
     }
 
