@@ -162,6 +162,7 @@ public class MenuDialogs : IMenuDialogs
             if (_contactService.Update(selectedContact))
             {
                 Console.WriteLine("Contact updated successfully.");
+                Console.WriteLine("----Press Any Key To Go Back To Menu");
             }
             else
             {
@@ -206,6 +207,7 @@ public class MenuDialogs : IMenuDialogs
                 if (_contactService.Delete(selectedContact.GuidId))
                 {
                     Console.WriteLine("Contact deleted successfully.");
+                    Console.WriteLine("----Press Any Key To Go Back To Menu");
                 }
                 else
                 {
@@ -219,7 +221,7 @@ public class MenuDialogs : IMenuDialogs
             Console.ReadKey();
         }
 
-    private string CheckingNull(string textFromUser)//för att städa upp lite
+    private string CheckingNull(string textFromUser)
     {
         Console.Write(textFromUser);
         string? input = Console.ReadLine()?.Trim();
