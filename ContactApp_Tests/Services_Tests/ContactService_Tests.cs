@@ -81,7 +81,42 @@ public class ContactService_Tests
     }
 
     [Fact]
-    pu
+    public void Delete_ShouldRemoveContact_AndSaveToFile()
+    {
+        //arrange
+        var mockContact = new Contact { GuidId = Guid.NewGuid(), FirstName = "Fredrik", LastName = "Nilsson" };
+
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { mockContact });
+
+        //_fileServiceMock.Setup(fs => fs.SaveToFile(It.IsAny<List<Contact>>()));
+
+        var contactService = new ContactService(_contactFactoryMock.Object, _fileServiceMock.Object);
+
+        //act
+        var resuult = contactService.Delete(mockContact.GuidId);
+        //assert
+        Assert.True(resuult);
+        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);//kollar att savetofile anrpats
+
+        var updatedList = contactService.Read();//läser in listan och dubbelkollar att mockCotact är borttage. laddar hela listan ifall flera objekt finns
+        Assert.DoesNotContain(mockContact, updatedList);
+    }
+
+    [Fact]
+    public void Read_ShouldLoadListFromFile_AndReturnList()
+    {
+        //arrange
+        var mockContact = new Contact { FirstName = "Fredrik", LastName = "Nilsson" };
+
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { mockContact });
+
+        var contactService  = new ContactService(_contactFactoryMock.Object, _fileServiceMock.Object);
+        //act
+
+        var result = contactService.Read();
+        //assert
+        Assert.Contains(mockContact, result.ToList());//konvertera IEnumerable till list så Asser.Contains fungerar
+    }
 }
 
 
