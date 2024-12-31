@@ -149,20 +149,21 @@ public class MenuDialogs : IMenuDialogs
         if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= contact.Count)
         {
             var selectedContact = contact[choice - 1];
-            Console.WriteLine($"Updating contact: {selectedContact.FirstName} {selectedContact.LastName}");
+            var updatedContact = new Contact
+            {
+                GuidId = selectedContact.GuidId, 
+                FirstName = CheckingNull($"Current First Name ({selectedContact.FirstName}): "),
+                LastName = CheckingNull($"Current Last Name ({selectedContact.LastName}): "),
+                Email = CheckingNull($"Current Email ({selectedContact.Email}): "),
+                PhoneNumber = CheckingNull($"Current Phone Number ({selectedContact.PhoneNumber}): "),
+                StreetAdress = CheckingNull($"Current Street Address ({selectedContact.StreetAdress}): "),
+                PostalCode = CheckingNull($"Current Postal Code ({selectedContact.PostalCode}): "),
+                City = CheckingNull($"Current City ({selectedContact.City}): ")
+            };
 
-            selectedContact.FirstName = CheckingNull($"Current First Name ({selectedContact.FirstName}): ");
-            selectedContact.LastName = CheckingNull($"Current Last Name ({selectedContact.LastName}): ");
-            selectedContact.Email = CheckingNull($"Current Email ({selectedContact.Email}): ");
-            selectedContact.PhoneNumber = CheckingNull($"Current Phone Number ({selectedContact.PhoneNumber}): ");
-            selectedContact.StreetAdress = CheckingNull($"Current Street Address ({selectedContact.StreetAdress}): ");
-            selectedContact.PostalCode = CheckingNull($"Current Postal Code ({selectedContact.PostalCode}): ");
-            selectedContact.City = CheckingNull($"Current City ({selectedContact.City}): ");
-
-            if (_contactService.Update(selectedContact))
+            if (_contactService.Update(updatedContact))
             {
                 Console.WriteLine("Contact updated successfully.");
-                Console.WriteLine("----Press Any Key To Go Back To Menu");
             }
             else
             {

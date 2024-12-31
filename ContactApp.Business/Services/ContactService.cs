@@ -34,14 +34,24 @@ public class ContactService : IContactService
         return _contacts;
     }
 
-    public bool Update(Contact contact)
+    public bool Update(Contact updatedContact)
     {
-        var existingContact = _contacts.FirstOrDefault(c => c.GuidId == contact.GuidId);
-        if (contact == null)
+
+        var existingContact = _contacts.FirstOrDefault(c => c.GuidId == updatedContact.GuidId);
+        if (existingContact == null)
         {
-            Console.WriteLine("User not found.");
+            Console.WriteLine("Contact not found in the list.");
             return false;
         }
+        existingContact.FirstName = updatedContact.FirstName;
+        existingContact.LastName = updatedContact.LastName;
+        existingContact.Email = updatedContact.Email;
+        existingContact.PhoneNumber = updatedContact.PhoneNumber;
+        existingContact.StreetAdress = updatedContact.StreetAdress;
+        existingContact.PostalCode = updatedContact.PostalCode;
+        existingContact.City = updatedContact.City;
+
+        _fileService.SaveToFile(_contacts); // Sparar uppdaterad lista
         return true;
     }
 
