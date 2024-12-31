@@ -19,53 +19,101 @@ public class ContactService : IContactService
     }
     public Contact Create()
     {
+        try
+        {
+
         return _contactFactory.Create();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error Occured During Create Phase: {ex.Message}");
+            throw new InvalidOperationException("Was Not Able To Create Contact", ex);
+        }
     }
 
     public void Add(Contact contact)
     {
+        try
+        {
+
         _contacts.Add(contact);
         _fileService.SaveToFile(_contacts);
+
+        }
+        catch (Exception ex) 
+        {
+            Console.WriteLine($"Error Occured When Adding contact{ex.Message}");
+            throw new InvalidOperationException("Was Not Able To Add Contact Properly", ex);
+        }
     }
 
     public IEnumerable<Contact> Read()
     {
+        try
+        {
+
         _contacts = _fileService.LoadFromFile();
         return _contacts;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An Error Occured When Loading Contacts {ex.Message}");
+            throw new InvalidOperationException("Was Not Able To Load File And Add To List", ex);
+        }
     }
 
     public bool Update(Contact updatedContact)
     {
-
-        var existingContact = _contacts.FirstOrDefault(c => c.GuidId == updatedContact.GuidId);
-        if (existingContact == null)
+        try
         {
-            Console.WriteLine("Contact not found in the list.");
+            var existingContact = _contacts.FirstOrDefault(c => c.GuidId == updatedContact.GuidId);
+            if (existingContact == null)
+            {
+                Console.WriteLine("Contact not found in the list.");
+                return false;
+            }
+            existingContact.FirstName = updatedContact.FirstName;
+            existingContact.LastName = updatedContact.LastName;
+            existingContact.Email = updatedContact.Email;
+            existingContact.PhoneNumber = updatedContact.PhoneNumber;
+            existingContact.StreetAdress = updatedContact.StreetAdress;
+            existingContact.PostalCode = updatedContact.PostalCode;
+            existingContact.City = updatedContact.City;
+
+            _fileService.SaveToFile(_contacts); 
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Update resultet in error: {ex.Message}");
             return false;
         }
-        existingContact.FirstName = updatedContact.FirstName;
-        existingContact.LastName = updatedContact.LastName;
-        existingContact.Email = updatedContact.Email;
-        existingContact.PhoneNumber = updatedContact.PhoneNumber;
-        existingContact.StreetAdress = updatedContact.StreetAdress;
-        existingContact.PostalCode = updatedContact.PostalCode;
-        existingContact.City = updatedContact.City;
 
-        _fileService.SaveToFile(_contacts); // Sparar uppdaterad lista
-        return true;
     }
 
     public bool Delete(Guid id)
     {
-        var contact = _contacts.FirstOrDefault(c => c.GuidId == id);
-        if (contact == null)
+        try
         {
-            Console.WriteLine("User not found.");
+            var contact = _contacts.FirstOrDefault(contact => contact.GuidId == id);
+            if (contact == null)
+            {
+                Console.WriteLine("User not found.");
+                return false;
+            }
+
+            _contacts.Remove(contact); // Ta bort kontakten från listan
+            _fileService.SaveToFile(_contacts); // Spara ändringarna till fil
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An Error Occured when Deleting Contact: { ex.Message }");
             return false;
         }
-
-        _contacts.Remove(contact); // Ta bort kontakten från listan
-        _fileService.SaveToFile(_contacts); // Spara ändringarna till fil
-        return true;
     }
 }

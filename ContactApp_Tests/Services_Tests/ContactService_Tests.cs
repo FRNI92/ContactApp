@@ -120,9 +120,24 @@ public class ContactService_Tests
 
 
     [Fact]
-    public void Update_ShouldUpdateContactProperties()
+    public void Update_ShouldUpdateContactProperties_AndCallSaveToFile()
     {
+        //arrange
+        var firstMockContact = new Contact {GuidId = Guid.NewGuid(), FirstName = "Fredrik", LastName = "Nilsson" };
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { firstMockContact });//får en lilsta med contacten
 
+        var updatedMockContact = new Contact { GuidId = firstMockContact.GuidId, FirstName = "Bert", LastName = "Josefsson" };
+        _fileServiceMock.Setup(fs => fs.SaveToFile(It.IsAny<List<Contact>>()));
+
+        var contactService = new ContactService(_contactFactoryMock.Object, _fileServiceMock.Object);
+
+        //act
+        var result = contactService.Update(updatedMockContact);
+        //assert
+        Assert.True(result);
+        Assert.Equal("Bert", firstMockContact.FirstName);
+        Assert.Equal("Josefsson", firstMockContact.LastName);
+        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);
     }
 }
 
