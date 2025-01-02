@@ -43,7 +43,7 @@ public class FileService_Tests
     }
 
     [Fact]
-    public void SaveToFile_ShouldConvertAndSaveToFile()
+    public void SaveToFile_ShouldConvertListToJson_AndSaveToFile()
     {
         //arrange
         var testDirectory = "TestDataFile";
@@ -52,7 +52,7 @@ public class FileService_Tests
 
         var testContact = new List<Contact>
         {
-            new Contact { FirstName = "Fredrik", LastName = "Nilsson", Email = "Fredrik@domain.com" }
+            new Contact { FirstName = "SaveFredrik", LastName = "SaveNilsson", Email = "SaveFredrik@domain.com" }
         };
         //act
         fileService.SaveToFile(testContact);
@@ -61,12 +61,40 @@ public class FileService_Tests
         Assert.True(File.Exists(filePath));
 
         var ContactInFile = File.ReadAllText(filePath);
-        Assert.Contains("Fredrik", ContactInFile);
-        Assert.Contains("Nilsson", ContactInFile);
-        Assert.Contains("Fredrik@domain.com", ContactInFile);
+        Assert.Contains("SaveFredrik", ContactInFile);
+        Assert.Contains("SaveNilsson", ContactInFile);
+        Assert.Contains("SaveFredrik@domain.com", ContactInFile);
     }
 
+    [Fact]
 
+    public void LoadFromFile_ShouldLoadJsonFile_AndConvertToList()
+    {
+        //arrange
+        var loadTestDirectory = "LoadTestDataFile";
+        var loadTestFileName = "loadTestFile.json";
+        var filePath = Path.Combine(loadTestDirectory, loadTestFileName);
+
+        if (!Directory.Exists(loadTestDirectory))
+        {
+            Directory.CreateDirectory(loadTestDirectory);
+        }
+
+        var testContact = new List<Contact>
+        {
+            new Contact { FirstName = "LoadFredrik", LastName = "LoadNilsson", Email = "LoadFredrik@domain.com" }
+        };
+        File.WriteAllText(filePath, "[{ \"FirstName\": \"LoadFredrik\", \"LastName\": \"LoadNilsson\", \"Email\": \"LoadFredrik@domain.com\" }]");
+
+        IFileService fileService = new FileService(loadTestDirectory, loadTestFileName);
+
+        //act
+        var result = fileService.LoadFromFile();
+        //assert
+        Assert.Equal("LoadFredrik", result[0].FirstName);
+        Assert.Equal("LoadNilsson", result[0].LastName);
+        Assert.Equal("LoadFredrik@domain.com", result[0].Email);
+    }
 
 }
 
