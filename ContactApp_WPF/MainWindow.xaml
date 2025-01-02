@@ -1,0 +1,36 @@
+﻿<Window x:Class="ContactApp_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContactApp_WPF"
+        
+        xmlns:views="clr-namespace:ContactApp_WPF.Views"
+        xmlns:viewmodels="clr-namespace:ContactApp_WPF.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ContentControl Content="{Binding CurrentViewModel}">
+
+            <ContentControl.Resources>
+
+
+                <DataTemplate DataType="{x:Type viewmodels:StartPageViewModel}">
+                    <views:StartPageView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:SecondPageViewModel}">
+                    <views:SecondPageView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodels:ThirdPageViewModel}">
+                    <views:ThirdPageView />
+                </DataTemplate>
+
+            </ContentControl.Resources>
+
+        </ContentControl>
+    </Grid>
+</Window>
