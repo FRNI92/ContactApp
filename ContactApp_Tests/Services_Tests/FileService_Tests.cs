@@ -27,7 +27,7 @@ public class FileService_Tests
             Directory.CreateDirectory(testDirectory);
         }
         var filePath = Path.Combine(testDirectory, testFileName);
-        File.WriteAllText(filePath, "[{ \"invalidjson\": \"value\" }]");// use file below
+        File.WriteAllText(filePath, "[{ Invalid file]");// use file below to fail test
         //correct file, will return file and fail test: [{ \"invalidjson\": \"value\" }]
 
         //act
@@ -41,6 +41,32 @@ public class FileService_Tests
         //    Directory.Delete(testDirectory, true);
         //}
     }
+
+    [Fact]
+    public void SaveToFile_ShouldConvertAndSaveToFile()
+    {
+        //arrange
+        var testDirectory = "TestDataFile";
+        var testFileName = "testFile.json";
+        IFileService fileService = new FileService(testDirectory, testFileName);
+
+        var testContact = new List<Contact>
+        {
+            new Contact { FirstName = "Fredrik", LastName = "Nilsson", Email = "Fredrik@domain.com" }
+        };
+        //act
+        fileService.SaveToFile(testContact);
+        //assert
+        var filePath = Path.Combine(testDirectory, testFileName);
+        Assert.True(File.Exists(filePath));
+
+        var ContactInFile = File.ReadAllText(filePath);
+        Assert.Contains("Fredrik", ContactInFile);
+        Assert.Contains("Nilsson", ContactInFile);
+        Assert.Contains("Fredrik@domain.com", ContactInFile);
+    }
+
+
 
 }
 
