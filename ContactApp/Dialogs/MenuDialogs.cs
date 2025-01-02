@@ -1,6 +1,5 @@
 ﻿using ContactApp.Business.Interfaces;
 using ContactApp.Business.Models;
-using ContactApp.Dialogs;
 using static ContactApp.Interfaces.MenuDialogs;
 
 namespace ContactApp.Interfaces;

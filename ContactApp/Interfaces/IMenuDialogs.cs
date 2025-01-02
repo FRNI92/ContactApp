@@ -1,4 +1,4 @@
-﻿namespace ContactApp.Dialogs
+﻿namespace ContactApp.Interfaces
 {
     public interface IMenuDialogs
     {

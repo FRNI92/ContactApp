@@ -2,7 +2,6 @@
 using ContactApp.Business.Factories;
 using ContactApp.Business.Interfaces;
 using ContactApp.Business.Services;
-using ContactApp.Dialogs;
 using ContactApp.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

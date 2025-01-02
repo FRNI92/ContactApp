@@ -13,6 +13,7 @@ public class FileService_Tests
         _fileServiceMock = new Mock<IFileService>();
         _fileService = _fileServiceMock.Object;
     }
+
     [Fact]
     public void LoadFromFile_ShouldReturnEmptyList_WhenExceptionIsThrown()
     {
