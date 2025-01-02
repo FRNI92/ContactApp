@@ -2,7 +2,7 @@
 
 namespace ContactApp_Tests.Factories_Tests;
 
-public class Factories_Tests
+public class ContactFactory_Tests
 {
     [Fact]
     public void create_ShouldTakeInput_AndCreateContact_AndAddGuid()
