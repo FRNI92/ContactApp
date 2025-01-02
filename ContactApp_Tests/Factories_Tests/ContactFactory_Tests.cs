@@ -5,7 +5,7 @@ namespace ContactApp_Tests.Factories_Tests;
 public class ContactFactory_Tests
 {
     [Fact]
-    public void create_ShouldTakeInput_AndCreateContact_AndAddGuid()
+    public void create_ShouldTakeInput_CreateContact_WithGuid()
     {
         //arrange
         var factory = new ContactFactory();
