@@ -10,7 +10,7 @@ public partial class SecondPageViewModel : ObservableObject
 {
     private readonly IServiceProvider _serviceProvider;
     private readonly IContactService _contactService;
-    private readonly IFileService _fileService;
+
 
     [ObservableProperty]
     private Contact _user = new();
@@ -42,6 +42,5 @@ public partial class SecondPageViewModel : ObservableObject
     {
         _serviceProvider = serviceprovider;
         _contactService = contactService;
-        _fileService = fileService;
     }
 }
