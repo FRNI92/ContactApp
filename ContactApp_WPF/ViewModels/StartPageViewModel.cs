@@ -1,6 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ContactApp_WPF.ViewModels;
 
@@ -12,8 +13,8 @@ public partial class StartPageViewModel : ObservableObject
     [RelayCommand]
     private void GoToSecondPage()
     {
-        //var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-        //mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<SecondPageViewModel>();
+        var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<SecondPageViewModel>();
 
     }
     [RelayCommand]

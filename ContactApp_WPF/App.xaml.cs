@@ -25,8 +25,8 @@ namespace ContactApp_WPF
                     services.AddSingleton<IContactFactory, ContactFactory>();
                     services.AddTransient<StartPageViewModel>();
                     services.AddTransient<StartPageView>();
-                    //services.AddTransient<SecondPageView>();
-                    //services.AddTransient<SecondPageViewModel>();
+                    services.AddTransient<SecondPageView>();
+                    services.AddTransient<SecondPageViewModel>();
                     //services.AddTransient<ThirdPageView>();
                     //services.AddTransient<ThirdPageViewModel>();
                     services.AddSingleton<MainViewModel>();
