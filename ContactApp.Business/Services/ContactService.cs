@@ -105,8 +105,8 @@ public class ContactService : IContactService
                 return false;
             }
 
-            _contacts.Remove(contact); // Ta bort kontakten från listan
-            _fileService.SaveToFile(_contacts); // Spara ändringarna till fil
+            _contacts.Remove(contact); 
+            _fileService.SaveToFile(_contacts);
             return true;
 
         }

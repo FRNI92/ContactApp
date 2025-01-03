@@ -20,8 +20,16 @@ public partial class StartPageViewModel : ObservableObject
     [RelayCommand]
     private void GoToThirdPage()
     {
-        //var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-        //mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ThirdPageViewModel>();
+        var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ThirdPageViewModel>();
+
+    }    
+    
+    [RelayCommand]
+    private void GoToEditPage()
+    {
+        var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<EditPageViewModel>();
 
     }
 

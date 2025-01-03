@@ -27,8 +27,10 @@ namespace ContactApp_WPF
                     services.AddTransient<StartPageView>();
                     services.AddTransient<SecondPageView>();
                     services.AddTransient<SecondPageViewModel>();
-                    //services.AddTransient<ThirdPageView>();
-                    //services.AddTransient<ThirdPageViewModel>();
+                    services.AddTransient<ThirdPageView>();
+                    services.AddTransient<ThirdPageViewModel>();
+                    services.AddTransient<EditPageView>();
+                    services.AddTransient<EditPageViewModel>();
                     services.AddSingleton<MainViewModel>();
                     services.AddSingleton<MainWindow>();
                 })

@@ -24,9 +24,13 @@
                     <views:SecondPageView />
                 </DataTemplate>
 
-              <!--  <DataTemplate DataType="{x:Type viewmodels:ThirdPageViewModel}">
+                <DataTemplate DataType="{x:Type viewmodels:ThirdPageViewModel}">
                     <views:ThirdPageView />
-                </DataTemplate> -->
+                </DataTemplate>                
+                
+                <DataTemplate DataType="{x:Type viewmodels:EditPageViewModel}">
+                    <views:EditPageView />
+                </DataTemplate>
 
             </ContentControl.Resources>
 
