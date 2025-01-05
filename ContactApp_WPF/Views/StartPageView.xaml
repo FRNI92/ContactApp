@@ -9,9 +9,9 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:StartPageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    
-    <Grid Background="LightGray">
+
+
+    <Grid Style="{StaticResource PageBackgroundStyle}">
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
         <TextBlock Text="Welcome To Contact Manager" 
                    HorizontalAlignment="center" 
