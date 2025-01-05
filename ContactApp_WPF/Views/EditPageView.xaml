@@ -17,7 +17,8 @@
 
             <ComboBox ItemsSource="{Binding EditContactList}" 
               SelectedItem="{Binding SelectedContact}" 
-              DisplayMemberPath="FirstName" />
+              DisplayMemberPath="FirstName"
+              />
             <TextBox Text="{Binding SelectedContact.FirstName}" Margin="5"/>
             <TextBox Text="{Binding SelectedContact.LastName}" Margin="5"/>
             <TextBox Text="{Binding SelectedContact.Email}" Margin="5"/>
@@ -28,8 +29,23 @@
 
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             
-                <Button Content="Update" Command="{Binding UpdateContactCommand}" Width="100"  Margin="0,10" Height="40"/>
-                <Button Content="Delete" Command="{Binding DeleteContactCommand}" Width="100" Margin="0,10" Height="40"/>
+                <Button Content="Update" 
+                        Command="{Binding UpdateContactCommand}" 
+                        Width="100"  
+                        Margin="10,0,5,0" 
+                        Height="40"
+                        Background="Gold"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        />
+                <Button Content="Delete" 
+                        Command="{Binding DeleteContactCommand}" 
+                        Width="100" 
+                        Margin="5,0,10,0" 
+                        Height="40"
+                        Background="Red"
+                        Foreground="White"
+                        FontWeight="Bold"/>
                 <Button Content="Back" Command="{Binding GoToStartPageCommand}" Width="100" Margin="0,10" Height="40"/>
                 
             </WrapPanel>
