@@ -11,11 +11,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     
     
-    <Grid>
+    <Grid Background="LightGray">
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToSecondPageCommand}" Content="Add Contact" Width="200" Height="50" Margin="10" />
-            <Button Command="{Binding GoToThirdPageCommand}" Content="View Contacts" Width="200" Height="50" Margin="10" />
-            <Button Command="{Binding GoToEditPageCommand}" Content="Edit Contacts" Width="200" Height="50" Margin="10" />
+        <TextBlock Text="Welcome To Contact Manager" 
+                   HorizontalAlignment="center" 
+                   VerticalAlignment="Center"
+                   FontSize="30"
+                   Foreground="DarkBlue"
+                   FontWeight="Bold"></TextBlock>
+            <Button Command="{Binding GoToSecondPageCommand}" Content="Add Contact" Width="150" Height="40" Margin="10" />
+            <Button Command="{Binding GoToThirdPageCommand}" Content="View Contacts" Width="150" Height="40" Margin="10" />
+            <Button Command="{Binding GoToEditPageCommand}" Content="Edit Contacts" Width="150" Height="40" Margin="10" />
         </StackPanel>
     </Grid>
 </UserControl>

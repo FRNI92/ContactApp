@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:ContactApp_WPF"
              >
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

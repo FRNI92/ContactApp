@@ -14,6 +14,7 @@
     <Grid Margin="20">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" 
                     VerticalAlignment="Center" Width="300">
+
             <ComboBox ItemsSource="{Binding EditContactList}" 
               SelectedItem="{Binding SelectedContact}" 
               DisplayMemberPath="FirstName" />
@@ -25,10 +26,13 @@
             <TextBox Text="{Binding SelectedContact.PostalCode}" Margin="5"/>
             <TextBox Text="{Binding SelectedContact.City}" Margin="5"/>
 
-
-            <Button Content="Update" Command="{Binding UpdateContactCommand}" Margin="0,10" Height="40"/>
-                <Button Content="Delete" Command="{Binding DeleteContactCommand}" Margin="0,10" Height="40"/>
-            <Button Content="Back" Command="{Binding GoToStartPageCommand}" Margin="0,10" Height="40"/>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            
+                <Button Content="Update" Command="{Binding UpdateContactCommand}" Width="100"  Margin="0,10" Height="40"/>
+                <Button Content="Delete" Command="{Binding DeleteContactCommand}" Width="100" Margin="0,10" Height="40"/>
+                <Button Content="Back" Command="{Binding GoToStartPageCommand}" Width="100" Margin="0,10" Height="40"/>
+                
+            </WrapPanel>
         </StackPanel>
             
     </Grid>

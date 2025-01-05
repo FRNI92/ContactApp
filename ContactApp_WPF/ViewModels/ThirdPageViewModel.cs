@@ -18,10 +18,10 @@ public partial class ThirdPageViewModel : ObservableObject
     private ObservableCollection<Contact> _contacts = new();
 
     [RelayCommand]
-    private void GoToSecondPage()
+    private void GoToStartPage()
     {
         var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<SecondPageViewModel>();
+        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<StartPageViewModel>();
     }
 
 

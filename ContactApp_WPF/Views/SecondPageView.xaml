@@ -40,8 +40,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button Command="{Binding GoToStartPageCommand}" Content="Go Back" Width="200"  Margin="10" />
-            <Button Command="{Binding SaveContactCommand}" Content="Save Contact" Width="200"  Margin="10" />
+            <Button Command="{Binding SaveContactCommand}" Content="Save Contact" Width="150" Height="40"  Margin="10" />
+            <Button Command="{Binding GoToStartPageCommand}" Content="Go Back" Width="150" Height="40" Margin="10" />
         </StackPanel>
     </Grid>
 </UserControl>
