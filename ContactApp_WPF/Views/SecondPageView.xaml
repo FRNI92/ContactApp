@@ -10,13 +10,25 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid Style="{StaticResource PageBackgroundStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                   Text="Fill Out This Form And Add Contact" 
+                   HorizontalAlignment="center" 
+                   VerticalAlignment="Center"
+                   FontSize="24"
+                   Foreground="DarkBlue"
+                   FontWeight="Bold"
+                   Margin="0,0,0,40"></TextBlock>
+        </StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <TextBlock Text="FirstName" />
             <TextBox Text="{Binding User.FirstName}" Margin="0,0,0,2" Padding="4" />
 
@@ -39,8 +51,15 @@
             <TextBox Text="{Binding User.City}" Margin="0,0,0,2" Padding="4" />
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button Command="{Binding SaveContactCommand}" Content="Save Contact" Width="150" Height="40"  Margin="10" />
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Button Command="{Binding SaveContactCommand}" 
+                    Content="Save Contact" 
+                    Width="150" 
+                    Height="40"  
+                    Margin="10"
+                    Background="Green"
+                    Foreground="AntiqueWhite"
+                    FontWeight="Bold"/>
             <Button Command="{Binding GoToStartPageCommand}" Content="Go Back" Width="150" Height="40" Margin="10" />
         </StackPanel>
     </Grid>

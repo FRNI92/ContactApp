@@ -18,7 +18,8 @@
                    VerticalAlignment="Center"
                    FontSize="30"
                    Foreground="DarkBlue"
-                   FontWeight="Bold"></TextBlock>
+                   FontWeight="Bold"
+                   Margin="0,0,0,70"></TextBlock>
             <Button Command="{Binding GoToSecondPageCommand}" Content="Add Contact" Width="150" Height="40" Margin="10" />
             <Button Command="{Binding GoToThirdPageCommand}" Content="View Contacts" Width="150" Height="40" Margin="10" />
             <Button Command="{Binding GoToEditPageCommand}" Content="Edit Contacts" Width="150" Height="40" Margin="10" />
