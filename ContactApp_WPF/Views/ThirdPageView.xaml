@@ -39,7 +39,10 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToStartPageCommand}" Content="Go Back" Width="150" Height="40" Margin="10" />
+            <Button Command="{Binding GoToStartPageCommand}" 
+                    Content="Go Back" 
+                    Style="{StaticResource PageBaseButtonStyle}"
+                    Background="DodgerBlue" />
         </StackPanel>
     </Grid>
 </UserControl>

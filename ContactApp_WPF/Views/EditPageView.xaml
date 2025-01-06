@@ -57,29 +57,16 @@
             
                 <Button Content="Update" 
                         Command="{Binding UpdateContactCommand}" 
-                        Width="100"  
-                        Margin="10,0,5,0" 
-                        Height="40"
-                        Background="Gold"
-                        Foreground="White"
-                        FontWeight="Bold"
-                        />
+                        Style="{StaticResource PageBaseButtonStyle}"
+                        Background="Gold"/>
                 <Button Content="Delete" 
                         Command="{Binding DeleteContactCommand}" 
-                        Width="100" 
-                        Margin="5,0,10,0" 
-                        Height="40"
-                        Background="Red"
-                        Foreground="White"
-                        FontWeight="Bold"/>
-                <Button Content="Back"
+                        Style="{StaticResource PageBaseButtonStyle}"
+                        Background="Red"/>
+                <Button Content="Go Back"
                         Command="{Binding GoToStartPageCommand}"
-                        Width="100" 
-                        Margin="10,10,0,0" 
-                        Height="40"
-                        Background="Blue"
-                        Foreground="White"
-                        FontWeight="Bold"/>
+                        Style="{StaticResource PageBaseButtonStyle}"
+                        Background="DodgerBlue"/>
                 
             </WrapPanel>
         </StackPanel>

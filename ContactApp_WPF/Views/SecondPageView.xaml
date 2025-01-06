@@ -54,13 +54,12 @@
         <StackPanel Grid.Row="2" Grid.Column="2">
             <Button Command="{Binding SaveContactCommand}" 
                     Content="Save Contact" 
-                    Width="150" 
-                    Height="40"  
-                    Margin="10"
-                    Background="Green"
-                    Foreground="AntiqueWhite"
-                    FontWeight="Bold"/>
-            <Button Command="{Binding GoToStartPageCommand}" Content="Go Back" Width="150" Height="40" Margin="10" />
+                    Style="{StaticResource PageBaseButtonStyle}"
+                    Background="Green"/>
+            <Button Command="{Binding GoToStartPageCommand}" 
+                    Content="Go Back" 
+                   Style="{StaticResource PageBaseButtonStyle}"
+                    Background="DodgerBlue"/>
         </StackPanel>
     </Grid>
 </UserControl>
