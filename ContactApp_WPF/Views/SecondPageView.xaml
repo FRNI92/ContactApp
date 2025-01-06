@@ -20,34 +20,33 @@
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <TextBlock Grid.Row="0" Grid.Column="0"
                    Text="Fill Out This Form And Add Contact" 
-                   HorizontalAlignment="center" 
-                   VerticalAlignment="Center"
-                   FontSize="24"
-                   Foreground="DarkBlue"
-                   FontWeight="Bold"
-                   Margin="0,0,0,40"></TextBlock>
+                   Style="{StaticResource PageTextStyle}"
+                   Margin="0,50,0,30" 
+                   FontSize="26">
+            </TextBlock>
         </StackPanel>
+                
 
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <TextBlock Text="FirstName" />
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="FirstName" />
             <TextBox Text="{Binding User.FirstName}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="LastName" />
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="LastName" />
             <TextBox Text="{Binding User.LastName}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="Email" />
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="Email" />
             <TextBox Text="{Binding User.Email}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="PhoneNumber" />
+            <TextBlock  Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="PhoneNumber" />
             <TextBox Text="{Binding User.PhoneNumber}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="StreetAdress" />
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="StreetAdress" />
             <TextBox Text="{Binding User.StreetAdress}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="PostalCode" />
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="PostalCode" />
             <TextBox Text="{Binding User.PostalCode}" Margin="0,0,0,2" Padding="4" />
 
-            <TextBlock Text="City" />
+            <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="City" />
             <TextBox Text="{Binding User.City}" Margin="0,0,0,2" Padding="4" />
         </StackPanel>
 

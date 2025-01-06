@@ -6,6 +6,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="Resources/Fonts/Fonts.xaml" />
+                <ResourceDictionary Source="Resources/Styling/TextBoxStyling.xaml" />
+                
                 <ResourceDictionary Source="Resources/Styling/BackgroundStyling.xaml" />
                 <ResourceDictionary Source="Resources/Styling/TextStyling.xaml"/>
                 <ResourceDictionary Source="Resources/Styling/ButtonStyling.xaml"/>

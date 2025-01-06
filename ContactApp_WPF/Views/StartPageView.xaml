@@ -12,15 +12,26 @@
 
 
     <Grid Style="{StaticResource PageBackgroundStyle}">
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
-        <TextBlock Text="Welcome To Contact Manager" 
-                   HorizontalAlignment="center" 
-                   VerticalAlignment="Center"
-                   FontSize="30"
-                   Foreground="DarkBlue"
-                   FontWeight="Bold"
-                   Margin="0,0,0,70"></TextBlock>
-            <Button Command="{Binding GoToSecondPageCommand}" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"  />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="Welcome To Contact Manager" 
+                   Style="{StaticResource PageTextStyle}"
+                   FontSize="30">
+            </TextBlock>
+        </Grid>
+
+        <StackPanel Grid.Row="1" 
+                    VerticalAlignment="Bottom" 
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,50">
+
+            <Button Command="{Binding GoToSecondPageCommand}"
+                    
                     Content="Add Contact" 
                     Style="{StaticResource PageBaseButtonStyle}"
                     Background="Gold"/>

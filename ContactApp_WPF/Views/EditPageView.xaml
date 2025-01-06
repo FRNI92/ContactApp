@@ -20,12 +20,10 @@
 
         <TextBlock Grid.Row="0"
                    
-                   Text="Please Select A Contact From The List Below"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="0,20,0,20"
+                   Text="Select A Contact From The List Below"
+                   Style="{StaticResource PageTextStyle}" 
+                   Margin="0,50,0,0"
                    FontSize="24"
-                   Foreground="DarkBlue"
                    >
             
         </TextBlock>
@@ -41,13 +39,20 @@
               SelectedItem="{Binding SelectedContact}" 
               DisplayMemberPath="FirstName"
               />
-            <TextBox Text="{Binding SelectedContact.FirstName}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.LastName}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.Email}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.PhoneNumber}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.StreetAdress}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.PostalCode}" Margin="5"/>
-            <TextBox Text="{Binding SelectedContact.City}" Margin="5"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.FirstName}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.LastName}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.Email}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.PhoneNumber}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.StreetAdress}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.PostalCode}"/>
+            <TextBox Style="{StaticResource PageTextBoxStyle}" 
+                     Text="{Binding SelectedContact.City}"/>
 
             <WrapPanel Orientation="Horizontal" 
                        HorizontalAlignment="Center" 
