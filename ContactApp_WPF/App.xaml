@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styling/BackgroundStyling.xaml" />
                 <ResourceDictionary Source="Resources/Styling/TextStyling.xaml"/>
+                <ResourceDictionary Source="Resources/Styling/ButtonStyling.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
