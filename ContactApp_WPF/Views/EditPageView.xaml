@@ -54,7 +54,7 @@
             <TextBox Style="{StaticResource PageTextBoxStyle}" 
                      Text="{Binding SelectedContact.City}"/>
 
-            <WrapPanel Orientation="Horizontal" 
+            <WrapPanel Orientation="Vertical" 
                        HorizontalAlignment="Center" 
                        Grid.Row="2"
                        Grid.Column="2" 
