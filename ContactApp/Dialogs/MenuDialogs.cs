@@ -220,15 +220,15 @@ public class MenuDialogs : IMenuDialogs
             Console.ReadKey();
         }
 
-    private string CheckingNull(string textFromUser)//för att städa upp lite
+    private string CheckingNull(string textToUser)//för att städa upp lite
     {
-        Console.Write(textFromUser);
+        Console.Write(textToUser);
         string? input = Console.ReadLine()?.Trim();
 
         while (string.IsNullOrWhiteSpace(input))
         {
             Console.WriteLine("Input cannot be empty. Please try again.");
-            Console.Write(textFromUser);
+            Console.Write(textToUser);
             input = Console.ReadLine()?.Trim();
 
         }

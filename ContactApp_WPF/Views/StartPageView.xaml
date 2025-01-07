@@ -34,17 +34,17 @@
                     
                     Content="Add Contact" 
                     Style="{StaticResource PageBaseButtonStyle}"
-                    Background="Gold"/>
+                    Background="#FFD700"/>
 
             <Button Command="{Binding GoToThirdPageCommand}" 
                     Content="View Contacts" 
                     Style="{StaticResource PageBaseButtonStyle}"
-                    Background="LightPink"/>
+                    Background="#FFB6C1"/>
             
             <Button Command="{Binding GoToEditPageCommand}" 
                     Content="Edit Contacts" 
                     Style="{StaticResource PageBaseButtonStyle}"
-                    Background="Purple"/>
+                    Background="#9932CC"/>
         </StackPanel>
     </Grid>
 </UserControl>

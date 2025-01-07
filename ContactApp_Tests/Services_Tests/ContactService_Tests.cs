@@ -57,9 +57,9 @@ public class ContactService_Tests
     public void Add_ShouldAddToList_AndSaveToFile()
     {
         //arrange
-        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact>());//ville inte ändra koden jag hade så jag instansierar listan såhär
-        
         var mockContact = new Contact { FirstName = "Fredrik", LastName = "Nilsson" };
+        
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> ());//ville inte ändra koden jag hade så jag instansierar listan såhär
 
         _contactFactoryMock.Setup(contactfactory => contactfactory.Create()).Returns(mockContact);
 

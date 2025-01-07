@@ -24,9 +24,16 @@
                     
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonHoover" Property="Background" Value="Green"/>
-                            <Setter TargetName="ButtonHoover" Property="BorderBrush" Value="Blue"/>
-                            <Setter TargetName="ButtonHoover" Property="BorderThickness" Value="2"/>
+                            <Setter TargetName="ButtonHoover" Property="Background" Value="LightBLue"/>
+                            <Setter TargetName="ButtonHoover" Property="BorderBrush" Value="#801E90FF"/>
+                            <Setter TargetName="ButtonHoover" Property="BorderThickness" Value="1"/>
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Gray" BlurRadius="8" Direction="320" ShadowDepth="3"/>
+                                </Setter.Value>
+                            </Setter>
+                            
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
