@@ -91,6 +91,7 @@ public class MenuDialogs : IMenuDialogs
         else if (userChoice == "n")
         {
             Console.WriteLine("Contact Not Saved");
+            Console.WriteLine("Press any key to return to the menu");
             Console.ReadKey();
         }
         else
