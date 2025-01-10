@@ -32,7 +32,7 @@ public class ContactService_Tests
     [Fact]
     public void Create_Contact_ShouldSetCorrectValues()
     {
-        //Arrrange, använder delvis mock av Icontactservice och delvis riktiga Contactservice
+        //Arrrange
         var contact = new Contact { FirstName = "Fredrik", LastName = "Nilsson", Email = "Fred@domain.com",
             PhoneNumber = "123456789", StreetAdress = "Villavägen 12", PostalCode = "202 27",
             City = "Stockholm" };
@@ -88,7 +88,6 @@ public class ContactService_Tests
 
         _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { mockContact });
 
-        //_fileServiceMock.Setup(fs => fs.SaveToFile(It.IsAny<List<Contact>>()));
 
         var contactService = new ContactService(_contactFactoryMock.Object, _fileServiceMock.Object);
 
@@ -96,9 +95,9 @@ public class ContactService_Tests
         var resuult = contactService.Delete(mockContact.GuidId);
         //assert
         Assert.True(resuult);
-        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);//kollar att savetofile anrpats
+        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);
 
-        var updatedList = contactService.Read();//läser in listan och dubbelkollar att mockCotact är borttage. laddar hela listan ifall flera objekt finns
+        var updatedList = contactService.Read();
         Assert.DoesNotContain(mockContact, updatedList);
     }
 
@@ -115,7 +114,7 @@ public class ContactService_Tests
 
         var result = contactService.Read();
         //assert
-        Assert.Contains(mockContact, result.ToList());//konvertera IEnumerable till list så Asser.Contains fungerar
+        Assert.Contains(mockContact, result.ToList());
     }
 
 
@@ -124,7 +123,7 @@ public class ContactService_Tests
     {
         //arrange
         var firstMockContact = new Contact {GuidId = Guid.NewGuid(), FirstName = "Fredrik", LastName = "Nilsson" };
-        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { firstMockContact });//får en lilsta med contacten
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> { firstMockContact });
 
         var updatedMockContact = new Contact { GuidId = firstMockContact.GuidId, FirstName = "Bert", LastName = "Josefsson" };
         _fileServiceMock.Setup(fs => fs.SaveToFile(It.IsAny<List<Contact>>()));
@@ -140,6 +139,8 @@ public class ContactService_Tests
         _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);
     }
 }
+
+
 
 
     //void Add(Contact contact);

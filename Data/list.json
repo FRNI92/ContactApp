@@ -1,12 +1,32 @@
 [
   {
-    "FirstName": "fre",
-    "LastName": "fre",
-    "Email": "fre",
-    "PhoneNumber": "fre",
-    "StreetAdress": "fre",
-    "PostalCode": "fre",
-    "City": "fre",
-    "GuidId": "ee3fcc0e-b326-4208-a009-c16abc114487"
+    "FirstName": "Emil",
+    "LastName": "Andersson",
+    "Email": "Emil@gmail.com",
+    "PhoneNumber": "98876872",
+    "StreetAdress": "Krisntinav\u00E4gen 30",
+    "PostalCode": "71130",
+    "City": "Lindesberg",
+    "GuidId": "b29741b6-f154-42a6-ac46-e66dbf7718c0"
+  },
+  {
+    "FirstName": "Max",
+    "LastName": "Nathalaaiaiannssson",
+    "Email": "Max@gmail.com",
+    "PhoneNumber": "08787667",
+    "StreetAdress": "Mejeriv\u00E4gen 18a",
+    "PostalCode": "70380",
+    "City": "\u00D6rebro",
+    "GuidId": "388c9174-f35e-4391-8365-7d4d9d6b2f56"
+  },
+  {
+    "FirstName": "Stefan",
+    "LastName": "ohlsson",
+    "Email": "Stefan@gmail.com",
+    "PhoneNumber": "09814712498",
+    "StreetAdress": "Gruvgatan 2",
+    "PostalCode": "71134",
+    "City": "\u00C4lvsbyn",
+    "GuidId": "787240c1-0f2a-42a7-84d9-cfd39e11f249"
   }
 ]

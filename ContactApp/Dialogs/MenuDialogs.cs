@@ -221,7 +221,7 @@ public class MenuDialogs : IMenuDialogs
             Console.ReadKey();
         }
 
-    private string CheckingNull(string textToUser)
+    private static string CheckingNull(string textToUser)
     {
         Console.Write(textToUser);
         string? input = Console.ReadLine()?.Trim();
