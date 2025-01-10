@@ -47,7 +47,7 @@ public class FileService : IFileService
             var json = File.ReadAllText(_filePath);
             var contactList = JsonSerializer.Deserialize<List<Contact>>(json) ?? [];
 
-            if (!contactList.Any())
+            if (contactList.Count == 0)
             {
                 Console.WriteLine("No contacts available.");
             }
