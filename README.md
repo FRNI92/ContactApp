@@ -1,5 +1,5 @@
 ## Varning 
-The tests on 'FileService_Tests' will not mock the filesaving part. a real file and folder will be created.
+The tests on 'FileService_Tests' will not mock the filesaving part. A real file and folder will be created.
 I have added a Directory methods to delete the folder after the test is completed at the bottom of the tests.
 Comment out that part if you want to be able to see the folder after the test is completed.
 'public void LoadFromFile_ShouldReturnEmptyList_WhenExceptionIsThrown' have a valid file in a comment if you want to make the test fail.
