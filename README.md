@@ -13,7 +13,9 @@ Comment out that part if you want to be able to see the folder after the test is
 3. **ContactApp_Tests**
    -Contains tests on all testable part in business.
 4. **ContactApp_WPF**
-   Is a Graphic User Interface that switches between pages and is connected to the .Business.
+   -Is a Graphic User Interface that switches between pages and is connected to the .Business.
 
 
 Both the console application and the WPF application use the same business logic and saves and loads data to the same file.
+
+This application can create, update, delete and show contacts. You can to this in 'ContactApp' and in 'ContactApp_WPF'
