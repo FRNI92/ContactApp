@@ -29,7 +29,7 @@ public class FileService_Tests
         }
         var filePath = Path.Combine(testDirectory, testFileName);
         File.WriteAllText(filePath, "[{ Invalid file]");// use file below to fail test
-        //correct file, will return file and fail test: [{ \"invalidjson\": \"value\" }]
+        //correct file, will return file and fail test: [{ \"validjson\": \"value\" }]
 
         //act
         var result = fileService.LoadFromFile();
@@ -37,10 +37,10 @@ public class FileService_Tests
         Assert.NotNull(result);
         Assert.Empty(result);
 
-        //if (Directory.Exists(testDirectory))
-        //{
-        //    Directory.Delete(testDirectory, true);
-        //}
+        if (Directory.Exists(testDirectory))
+        {
+            Directory.Delete(testDirectory, true);
+        }
     }
 
     [Fact]
@@ -65,6 +65,11 @@ public class FileService_Tests
         Assert.Contains("SaveFredrik", ContactInFile);
         Assert.Contains("SaveNilsson", ContactInFile);
         Assert.Contains("SaveFredrik@domain.com", ContactInFile);
+
+        if (Directory.Exists(testDirectory))
+        {
+            Directory.Delete(testDirectory, true);
+        }
     }
 
     [Fact]
@@ -95,12 +100,11 @@ public class FileService_Tests
         Assert.Equal("LoadFredrik", result[0].FirstName);
         Assert.Equal("LoadNilsson", result[0].LastName);
         Assert.Equal("LoadFredrik@domain.com", result[0].Email);
+
+        if (Directory.Exists(loadTestDirectory))
+        {
+            Directory.Delete(loadTestDirectory, true);
+        }
     }
 
 }
-
-
-
-//SaveToFile
-//LoadFromFile
-//Check load from file catch
