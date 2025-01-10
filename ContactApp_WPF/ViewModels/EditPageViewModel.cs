@@ -18,7 +18,7 @@ public partial class EditPageViewModel : ObservableObject
     private ObservableCollection<Contact> _editContactList = new();
 
     [ObservableProperty]
-    private Contact _selectedContact;
+    private Contact _selectedContact = new();
    
     [RelayCommand]
     private void GoToStartPage()
@@ -49,11 +49,8 @@ public partial class EditPageViewModel : ObservableObject
         {
             _contactService.Delete(SelectedContact.GuidId);
             EditContactList.Remove(SelectedContact);
-            SelectedContact = null!;
         }
     }    
-
-
 
     public EditPageViewModel(IContactService contactService, IFileService fileService, IServiceProvider serviceProvider)
     {

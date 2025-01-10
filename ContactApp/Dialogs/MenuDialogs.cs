@@ -221,7 +221,7 @@ public class MenuDialogs : IMenuDialogs
             Console.ReadKey();
         }
 
-    private string CheckingNull(string textToUser)//för att städa upp lite
+    private string CheckingNull(string textToUser)
     {
         Console.Write(textToUser);
         string? input = Console.ReadLine()?.Trim();

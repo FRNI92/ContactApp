@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ContactApp.Business.Interfaces;
 using ContactApp.Business.Models;
 using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Markup;
 
 namespace ContactApp_WPF.ViewModels;
 

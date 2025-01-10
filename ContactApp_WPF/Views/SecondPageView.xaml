@@ -27,7 +27,7 @@
         </StackPanel>
                 
 
-        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <TextBlock Style="{StaticResource PageTextStyle}" Margin="0,5,0,0" Text="FirstName" />
             <TextBox Text="{Binding User.FirstName}" Margin="0,0,0,2" Padding="4" />
 

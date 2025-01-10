@@ -20,6 +20,7 @@ namespace ContactApp_WPF
             _host = Host.CreateDefaultBuilder()
                 .ConfigureServices((Context, services) =>
                 {
+
                     services.AddSingleton<IFileService, FileService>();
                     services.AddSingleton<IContactService, ContactService>();
                     services.AddSingleton<IContactFactory, ContactFactory>();

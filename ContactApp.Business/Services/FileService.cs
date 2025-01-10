@@ -9,7 +9,7 @@ public class FileService : IFileService
     private readonly String _directoryPath;
     private readonly String _filePath;
 
-    public FileService(string directoryPath = "Data", string fileName = "list.json")
+    public FileService(string directoryPath = "c:\\ProjectsVs\\ContactApp\\Data", string fileName = "list.json")
     {
         _directoryPath = directoryPath;
         _filePath = Path.Combine(_directoryPath, fileName);

@@ -59,7 +59,7 @@ public class ContactService_Tests
         //arrange
         var mockContact = new Contact { FirstName = "Fredrik", LastName = "Nilsson" };
         
-        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> ());//ville inte ändra koden jag hade så jag instansierar listan såhär
+        _fileServiceMock.Setup(fs => fs.LoadFromFile()).Returns(new List<Contact> ());
 
         _contactFactoryMock.Setup(contactfactory => contactfactory.Create()).Returns(mockContact);
 
@@ -67,8 +67,8 @@ public class ContactService_Tests
         //act
         contactService.Add(mockContact);
         //Assert
-        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);//dubbelkollar att den metoden användes
-        var result = contactService.Read();// kollar att det ligger någon i listan
+        _fileServiceMock.Verify(fs => fs.SaveToFile(It.IsAny<List<Contact>>()), Times.Once);
+        var result = contactService.Read();
         Assert.Contains(mockContact, result);
 
 
